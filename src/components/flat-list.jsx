@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import Flat from './flat.jsx';
+import Flat from './flat';
 
 
 class FlatList extends Component {
   renderList = () => {
-    return this.props.flats.map((flat, index) => <Flat info={flat} key={flat.price} index={index} selected={this.props.selected.name === flat.name} select={this.props.select} />);
+    const { flats, selected, select } = this.props;
+    return flats.map((flat, index) => <Flat info={flat} key={flat.price} index={index} selected={selected.name === flat.name} select={select} />);
   }
 
   render() {
